@@ -211,10 +211,12 @@ public class BinarySearchTree<T extends Comparable<T>> {
 		bst.inOrder();
 		System.out.println();
 		bst.inOrderStack();
+		System.out.println();
 		System.out.println("Pre Order Traversals");
 		bst.preOrder();
 		System.out.println();
 		bst.preOrderStack();
+		System.out.println();
 		System.out.println("Post Order Traversals");
 		bst.postOrder();
 		System.out.println();
