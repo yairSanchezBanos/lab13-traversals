@@ -2,6 +2,8 @@ package bst;
 
 import java.util.Stack;
 
+import bst.BinarySearchTree.BSTNode;
+
 public class BinarySearchTree<T extends Comparable<T>> {
 	
 	private static class BSTNode<T extends Comparable<T>>{
@@ -213,12 +215,28 @@ public class BinarySearchTree<T extends Comparable<T>> {
 	//Traverse the tree in an postorder fashion
 	//Recurse on the children and then print the value in the current node
 	public void postOrder() {
-		postOrderRecurse(root); 
+		System.out.println("PostOrder test commit");
+		postOrderRecurse(root);
+		
 	}
 	
 	public void postOrderRecurse(BSTNode<T> node) {
+		if(node == null) {
+			return;
+		}
+		else{
+			
+			postOrderRecurse(node.leftChild);
+			postOrderRecurse(node.rightChild);
+			System.out.println(node.data + " ");
 		
-	}
+		}
+		
+			
+		}
+		
+	
+	
 	
 	//Traverse the tree in an postorder fashion uses Stacks. 
 	//This is more difficult than the other traversals using a Stack
@@ -231,6 +249,14 @@ public class BinarySearchTree<T extends Comparable<T>> {
 			postHelper.push(root);
 			while(!postHelper.isEmpty()) {
 				//how should post and postHelper be updated?
+				BSTNode<T> zed = postHelper.pop();
+				post.push(zed);
+				
+				if(zed.leftChild !=null)
+					postHelper.push(zed.leftChild);
+				if(zed.rightChild !=null)
+					postHelper.push(zed.rightChild);
+					
 			}
 			
 			while(!post.isEmpty()) {
